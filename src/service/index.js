@@ -10,9 +10,9 @@ import PostThunk from './PostThunks';
 // const validateSession = (config) => Get('api/validate', false, 'v1', config);
 
 /* service post */
-// const authUserToSocket = (data) => Post('login', true, data, 'socket');
+const ApiLogin = (data) => PostThunk('login', data);
 
 /* declare routing */
-const Service = {};
+const Service = { ApiLogin };
 
 export default Service;

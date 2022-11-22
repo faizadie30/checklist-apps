@@ -4,12 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './components/layout/Layout';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 import Login from './features/auth/Login';
+import Checklist from './features/checklist/Checklist';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <div>Hello world!</div>,
+      element: <Checklist />,
     },
     {
       path: '/login',
