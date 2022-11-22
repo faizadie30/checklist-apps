@@ -13,7 +13,7 @@ export const getDataChecklist = createAsyncThunk(
         Authorization: `Bearer ${token}`,
       },
     };
-    const response = await Service.ApiLogin(config);
+    const response = await Service.ApiListChecklist(config);
     return response;
   }
 );
