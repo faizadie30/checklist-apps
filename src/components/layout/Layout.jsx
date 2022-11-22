@@ -1,9 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 const { REACT_APP_NAME } = process.env;
 
 function Layout(props) {
   const { children, menu } = props;
+  const navigate = useNavigate();
+
+  const toLogin = () => {
+    navigate('/login');
+  };
+  const toChecklist = () => {
+    navigate('/');
+  };
+
   return (
     <>
       <Navbar
@@ -19,24 +29,29 @@ function Layout(props) {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link
-                href="#features"
+                href="#checklist"
+                onClick={() => toChecklist()}
                 active={menu === 'checklist' ? true : false}
               >
                 Checklist
               </Nav.Link>
               <Nav.Link
-                href="#pricing"
+                href="#checklist-items"
                 active={menu === 'checklist_items' ? true : false}
               >
                 Checklist Items
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets" active={menu === 'login' ? true : false}>
+              <Nav.Link
+                href="#login"
+                onClick={() => toLogin()}
+                active={menu === 'login' ? true : false}
+              >
                 Login
               </Nav.Link>
               <Nav.Link
-                href="#memes"
+                href="#register"
                 active={menu === 'register' ? true : false}
               >
                 Register

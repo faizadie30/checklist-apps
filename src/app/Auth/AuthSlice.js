@@ -1,8 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit/';
 import Service from '../../service';
 
+const checkToken = !Boolean(localStorage.getItem('token'))
+  ? ''
+  : localStorage.getItem('token');
+
 const initialState = {
-  token: '',
+  token: checkToken,
   username: '',
   email: '',
 };
@@ -24,6 +28,7 @@ export const AuthSlice = createSlice({
     builder.addCase(authLogin.fulfilled, (state, action) => {
       const resData = action.payload.data;
       state.token = resData.data.token;
+      localStorage.setItem('token', resData.data.token);
       return state;
     });
   },

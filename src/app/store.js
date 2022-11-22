@@ -5,7 +5,10 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: ['authSetup/login/fulfilled'],
+        ignoredActions: [
+          'authSetup/login/fulfilled',
+          'checklistSetup/getListChecklist/fulfilled',
+        ],
       },
     }),
   reducer: {
